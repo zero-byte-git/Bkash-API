@@ -1,4 +1,7 @@
-<img src="https://logos-world.net/wp-content/uploads/2024/10/Bkash-Logo.jpg" class="logo" height="380"/>
+<p align="center">
+  <img src="https://logos-world.net/wp-content/uploads/2024/10/Bkash-Logo.jpg" height="380" />
+</p>
+
 
 ---
 
