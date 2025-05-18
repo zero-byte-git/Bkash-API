@@ -1,3 +1,7 @@
+<img src="https://logos-world.net/wp-content/uploads/2024/10/Bkash-Logo.jpg" class="logo" width="380"/>
+
+---
+
 # 🧭 bKash Payment Integration: Quick Start Guide
 
 Welcome! This guide will help you set up and test the bKash payment flow in your local environment.
