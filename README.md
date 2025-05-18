@@ -1,11 +1,3 @@
-<img src="https://r2cdn.perplexity.ai/pplx-full-logo-primary-dark%402x.png" class="logo" width="120"/>
-
-# you'r formation is really bad, can you creatively update this format style?
-
-Absolutely! Let’s make this guide visually engaging, super clear, and easy to follow-using creative markdown with icons, callouts, and clear separation of steps.
-
----
-
 # 🧭 bKash Payment Integration: Quick Start Guide
 
 Welcome! This guide will help you set up and test the bKash payment flow in your local environment.
