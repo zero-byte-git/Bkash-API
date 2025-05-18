@@ -8,8 +8,10 @@ Welcome! This guide will help you set up and test the bKash payment flow in your
 ## 1️⃣ Clone the Repository
 
 ```bash
-git clone <your-repository-url>
-cd <your-repository-folder>
+git clone https://github.com/zero-byte-git/Bkash-API.git
+```
+```bash
+cd Bkash-API
 ```
 
 
@@ -122,8 +124,7 @@ BKASH_CALLBACK_URL=https://740e-118-179-44-184.ngrok-free.app/payment/callback/
 }
 ```
 
-- **Error Response:**
-We are encountering this error in the response body:
+- **Error Response (We are encountering this error in the response body):**
 
 ```json
 {
