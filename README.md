@@ -1,55 +1,140 @@
-How To Run:
-- Clone the Repository
-- Create python environment by giving this command   Windows:python -m venv env Linux:python3 -m venv env
-- Activate the environment by giving this command Windows: env/Scripts/activate  Linux: source env/bin/activate
-- Install the requirements.txt file  pip install -r requirements.txt
-- Create a .env file consisting these things.
+<img src="https://r2cdn.perplexity.ai/pplx-full-logo-primary-dark%402x.png" class="logo" width="120"/>
 
-* BKASH_APP_KEY=Use yours
-* BKASH_APP_SECRET=Use yours
-* BKASH_USERNAME=Use yours
-* BKASH_PASSWORD=Use yours
-* BKASH_BASE_URL=https://tokenized.sandbox.bka.sh/v1.2.0-beta
-* BKASH_CALLBACK_URL=https://740e-118-179-44-184.ngrok-free.app/payment/callback/   This is a local development envrionment thus we are using ngrok for callback
+# you'r formation is really bad, can you creatively update this format style?
+
+Absolutely! Let’s make this guide visually engaging, super clear, and easy to follow-using creative markdown with icons, callouts, and clear separation of steps.
+
+---
+
+# 🧭 bKash Payment Integration: Quick Start Guide
+
+Welcome! This guide will help you set up and test the bKash payment flow in your local environment.
+**Estimated setup time:** 5-10 minutes
+
+---
+
+## 1️⃣ Clone the Repository
+
+```bash
+git clone <your-repository-url>
+cd <your-repository-folder>
+```
 
 
--Open Postman
--Try this endpoint
--http://127.0.0.1:8000/payment/create/
--Request Body
+---
+
+## 2️⃣ Create a Python Virtual Environment
+
+| Platform | Command |
+| :-- | :-- |
+| 🪟 Windows | `python -m venv env` |
+| 🐧 Linux | `python3 -m venv env` |
+
+
+---
+
+## 3️⃣ Activate the Environment
+
+| Platform | Command |
+| :-- | :-- |
+| 🪟 Windows | `env\Scripts\activate` |
+| 🐧 Linux | `source env/bin/activate` |
+
+
+---
+
+## 4️⃣ Install Project Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+
+---
+
+## 5️⃣ Configure Environment Variables
+
+1. Create a `.env` file in your project root.
+2. Add the following (replace placeholders with your credentials):
+```env
+BKASH_APP_KEY=your_app_key
+BKASH_APP_SECRET=your_app_secret
+BKASH_USERNAME=your_username
+BKASH_PASSWORD=your_password
+BKASH_BASE_URL=https://tokenized.sandbox.bka.sh/v1.2.0-beta
+BKASH_CALLBACK_URL=https://740e-118-179-44-184.ngrok-free.app/payment/callback/
+```
+
+> ⚠️ **Note:**
+> - This example uses [ngrok](https://ngrok.com/) for local callback URLs.
+> - Update the callback URL if your ngrok address changes.
+
+---
+
+## 6️⃣ Initiate a Payment (Using Postman)
+
+- **Endpoint:**
+`POST http://127.0.0.1:8000/payment/create/`
+- **Request Body:**
+
+```json
 {
   "amount": "50.00",
   "invoice": "INV-1006"
 }
--You should get a response like this.
+```
+
+- **Sample Success Response:**
+
+```json
 {
-    "paymentID": "TR0011RsjP3mX1747579752377",
-    "bkashURL": "https://sandbox.payment.bkash.com/?paymentId=TR0011RsjP3mX1747579752377&hash=Ymnp!W*MhlwsNf2mE6T8yitwcpWU5dFezqHZu41Zbuizr7lSyl9zPhJ!yxZ1rwUkuMPR_UF!o4A7ATHPmTyFF1Y3iJoPRkd-R6.X1747579752377&mode=0011&apiVersion=v1.2.0-beta/",
-    "callbackURL": "https://740e-118-179-44-184.ngrok-free.app/payment/callback/",
-    "successCallbackURL": "https://740e-118-179-44-184.ngrok-free.app/payment/callback/?paymentID=TR0011RsjP3mX1747579752377&status=success&signature=jLN0zbOpph",
-    "failureCallbackURL": "https://740e-118-179-44-184.ngrok-free.app/payment/callback/?paymentID=TR0011RsjP3mX1747579752377&status=failure&signature=jLN0zbOpph",
-    "cancelledCallbackURL": "https://740e-118-179-44-184.ngrok-free.app/payment/callback/?paymentID=TR0011RsjP3mX1747579752377&status=cancel&signature=jLN0zbOpph",
-    "amount": "50.00",
-    "intent": "sale",
-    "currency": "BDT",
-    "paymentCreateTime": "2025-05-18T20:49:12:377 GMT+0600",
-    "transactionStatus": "Initiated",
-    "merchantInvoiceNumber": "INV-1005",
-    "statusCode": "0000",
-    "statusMessage": "Successful"
+  "paymentID": "TR0011RsjP3mX1747579752377",
+  "bkashURL": "https://sandbox.payment.bkash.com/?paymentId=TR0011RsjP3mX1747579752377&hash=...&mode=0011&apiVersion=v1.2.0-beta/",
+  "callbackURL": "https://740e-118-179-44-184.ngrok-free.app/payment/callback/",
+  "successCallbackURL": "...",
+  "failureCallbackURL": "...",
+  "cancelledCallbackURL": "...",
+  "amount": "50.00",
+  "intent": "sale",
+  "currency": "BDT",
+  "paymentCreateTime": "2025-05-18T20:49:12:377 GMT+0600",
+  "transactionStatus": "Initiated",
+  "merchantInvoiceNumber": "INV-1005",
+  "statusCode": "0000",
+  "statusMessage": "Successful"
 }
+```
 
--Copy the bkashURL from the response body and try to create a succesfull payment. We are getting failed after giving the PIN. The phone number and OTP are going through succesfully.
 
--After that try this endpoint
--http://127.0.0.1:8000/payment/execute/
+---
 
+## 7️⃣ Complete the Payment in Browser
+
+1. Copy the `bkashURL` from the response.
+2. Open it in your browser.
+3. Follow the payment steps:
+    - Enter phone number and OTP (should succeed).
+    - Enter PIN (sandbox may fail here; this is expected).
+
+---
+
+## 8️⃣ Execute the Payment
+
+- **Endpoint:**
+`POST http://127.0.0.1:8000/payment/execute/`
+- **Request Body:**
+
+```json
 {
   "paymentID": "TR0011RsjP3mX1747579752377"
 }
--We are getting this in the response body
-{
-    "statusCode": "2056",
-    "statusMessage": "Invalid Payment State"
-}
+```
 
+- **Sample Error Response (if payment not completed):**
+
+```json
+{
+  "statusCode": "2056",
+  "statusMessage": "Invalid Payment State"
+}
+```
