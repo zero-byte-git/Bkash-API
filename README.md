@@ -5,23 +5,23 @@ How To Run:
 - Install the requirements.txt file  pip install -r requirements.txt
 - Create a .env file consisting these things.
 
-BKASH_APP_KEY=Use yours
-BKASH_APP_SECRET=Use yours
-BKASH_USERNAME=Use yours
-BKASH_PASSWORD=Use yours
-BKASH_BASE_URL=https://tokenized.sandbox.bka.sh/v1.2.0-beta
-BKASH_CALLBACK_URL=https://740e-118-179-44-184.ngrok-free.app/payment/callback/   This is a local development envrionment thus we are using ngrok for callback
+* BKASH_APP_KEY=Use yours
+* BKASH_APP_SECRET=Use yours
+* BKASH_USERNAME=Use yours
+* BKASH_PASSWORD=Use yours
+* BKASH_BASE_URL=https://tokenized.sandbox.bka.sh/v1.2.0-beta
+* BKASH_CALLBACK_URL=https://740e-118-179-44-184.ngrok-free.app/payment/callback/   This is a local development envrionment thus we are using ngrok for callback
 
 
 -Open Postman
-Try this endpoint
-http://127.0.0.1:8000/payment/create/
-Request Body
+-Try this endpoint
+-http://127.0.0.1:8000/payment/create/
+-Request Body
 {
   "amount": "50.00",
   "invoice": "INV-1006"
 }
-You should get a response like this.
+-You should get a response like this.
 {
     "paymentID": "TR0011RsjP3mX1747579752377",
     "bkashURL": "https://sandbox.payment.bkash.com/?paymentId=TR0011RsjP3mX1747579752377&hash=Ymnp!W*MhlwsNf2mE6T8yitwcpWU5dFezqHZu41Zbuizr7lSyl9zPhJ!yxZ1rwUkuMPR_UF!o4A7ATHPmTyFF1Y3iJoPRkd-R6.X1747579752377&mode=0011&apiVersion=v1.2.0-beta/",
@@ -39,15 +39,15 @@ You should get a response like this.
     "statusMessage": "Successful"
 }
 
-Copy the bkashURL from the response body and try to create a succesfull payment. We are getting failed after giving the PIN. The phone number and OTP are going through succesfully.
+-Copy the bkashURL from the response body and try to create a succesfull payment. We are getting failed after giving the PIN. The phone number and OTP are going through succesfully.
 
-After that try this endpoint
-http://127.0.0.1:8000/payment/execute/
+-After that try this endpoint
+-http://127.0.0.1:8000/payment/execute/
 
 {
   "paymentID": "TR0011RsjP3mX1747579752377"
 }
-We are getting this in the response body
+-We are getting this in the response body
 {
     "statusCode": "2056",
     "statusMessage": "Invalid Payment State"
