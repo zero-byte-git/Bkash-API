@@ -122,7 +122,8 @@ BKASH_CALLBACK_URL=https://740e-118-179-44-184.ngrok-free.app/payment/callback/
 }
 ```
 
-- **Sample Error Response (if payment not completed):**
+- **Error Response:**
+We are encountering this error in the response body:
 
 ```json
 {
