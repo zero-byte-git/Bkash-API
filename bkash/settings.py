@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "rest_framework",
+    "drf_yasg",
     "payment",
 ]
 
@@ -95,12 +96,12 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-BKASH_APP_KEY = config('BKASH_APP_KEY')
-BKASH_APP_SECRET = config('BKASH_APP_SECRET')
-BKASH_USERNAME = config('BKASH_USERNAME')
-BKASH_PASSWORD = config('BKASH_PASSWORD')
-BKASH_BASE_URL = config('BKASH_BASE_URL')
-BKASH_CALLBACK_URL = config('BKASH_CALLBACK_URL')
+BKASH_APP_KEY = config("BKASH_APP_KEY")
+BKASH_APP_SECRET = config("BKASH_APP_SECRET")
+BKASH_USERNAME = config("BKASH_USERNAME")
+BKASH_PASSWORD = config("BKASH_PASSWORD")
+BKASH_BASE_URL = config("BKASH_BASE_URL")
+BKASH_CALLBACK_URL = config("BKASH_CALLBACK_URL")
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
@@ -147,3 +148,8 @@ LOGGING = {
         },
     },
 }
+
+
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')

@@ -1,8 +1,11 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from .serializers import PaymentCreateSerializer
-from .bkash import BkashAPI
+from payment.serializers import PaymentCreateSerializer
+from payment.bkash import BkashAPI
+from rest_framework import generics
+from payment.models import UserData
+from payment.serializers import UserDataSerializer
 
 
 class BkashCreatePaymentView(APIView):
@@ -36,3 +39,15 @@ class BkashQueryPaymentView(APIView):
         bkash = BkashAPI()
         result = bkash.query_payment(payment_id)
         return Response(result)
+
+
+
+
+
+class UserDataCreateView(generics.CreateAPIView):
+    queryset = UserData.objects.all()
+    serializer_class = UserDataSerializer
+
+class UserDataListView(generics.ListAPIView):
+    queryset = UserData.objects.all()
+    serializer_class = UserDataSerializer
