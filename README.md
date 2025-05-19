@@ -130,12 +130,3 @@ BKASH_CALLBACK_URL=https://740e-118-179-44-184.ngrok-free.app/payment/callback/
   "paymentID": "TR0011RsjP3mX1747579752377"
 }
 ```
-
-- **Error Response (We are encountering this error in the response body):**
-
-```json
-{
-  "statusCode": "2056",
-  "statusMessage": "Invalid Payment State"
-}
-```
